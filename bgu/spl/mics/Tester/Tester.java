@@ -124,7 +124,7 @@ public class Tester {
                     boolean passedSecondTest = false; //Checking Num Of Attacks Logic
                     boolean passedThirdTest  = true;  //Checking Graceful Termination (Should be at the same mili second~)
                     System.out.println("Your Deactivation Shield Finished Time --> " + shieldDeactivationTestValue + "  Test Value Should Of Been -> " + currentTests[i].getR2D2Sleep());
-                    if (shieldDeactivationTestValue - currentTests[i].getR2D2Sleep() < 100)
+                    if (shieldDeactivationTestValue - currentTests[i].getR2D2Sleep() < 100) //change this if u want better precision.. can do false alarms.
                         passedFirstTest = true;
                     if(numOfAttacksInTest.get() == (currentTests[i].getNumberOfAttacks().get()))
                         passedSecondTest = true;
