@@ -71,12 +71,12 @@ public class Tester {
                     serialsUsedInAttack.add(r);
             }
             if (serialsUsedInAttack.isEmpty()) serialsUsedInAttack.add(1);
-            generatedAttacks[i] = new Attack(serialsUsedInAttack, (int) (Math.random() * (3000) + 1000));
+            generatedAttacks[i] = new Attack(serialsUsedInAttack, (int) (Math.random() * (300) + 100));
         }
         generatedTest.setAttacks(generatedAttacks);
         generatedTest.setEwoks(numEwoks);
-        generatedTest.setLando((int) (Math.random() * (2000) + 1000));
-        generatedTest.setR2D2((int) (Math.random() * (2000) + 1000));
+        generatedTest.setLando((int) (Math.random() * (200) + 100));
+        generatedTest.setR2D2((int) (Math.random() * (200) + 100));
         generatedTest.setTestId(id);
         generatedTest.setNumOfAttacks(generatedAttacks.length);
         //Set generatedTest vals so we can save it easily via the class reference
@@ -130,7 +130,7 @@ public class Tester {
                 boolean passedThirdTest = true;  //Checking Graceful Termination (Should be at the same mili second~)
 
                 System.out.println("Your Deactivation Shield Finished Time --> " + shieldDeactivationTestValue + "  Test Value Should Of Been -> " + currentTests[i].getR2D2Sleep());
-                if (Math.round(shieldDeactivationTestValue / 1000) * 1000 == (Math.round(currentTests[i].getR2D2Sleep()) / 1000) * 1000)
+                if (Math.round(shieldDeactivationTestValue / 100) * 100 == (Math.round(currentTests[i].getR2D2Sleep()) / 100) * 100)
                     passedFirstTest = true;
                 if (numOfAttacksInTest.get() == (currentTests[i].getNumberOfAttacks().get()))
                     passedSecondTest = true;
