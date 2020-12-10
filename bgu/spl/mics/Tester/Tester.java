@@ -144,8 +144,8 @@ public class Tester {
                 System.out.println("Minimum Termination Time --> " + minTerminate);
 
                 //Termination Difference shall not be bigger than 0000000000020L, Otherwise an invalid method of termination is used (Most likely)
-                if (soloTerminate - minTerminate > 0000000000020L && C3POTerminate - minTerminate > 0000000000020L
-                        && LandoTermiante - minTerminate > 0000000000020L && R2D2Terminate - minTerminate > 0000000000020L)
+                if (soloTerminate - minTerminate > 0000000000020L || C3POTerminate - minTerminate > 0000000000020L
+                        || LandoTermiante - minTerminate > 0000000000020L || R2D2Terminate - minTerminate > 0000000000020L)
                     passedThirdTest = false;
 
                 if (passedFirstTest && passedSecondTest && passedThirdTest) {
