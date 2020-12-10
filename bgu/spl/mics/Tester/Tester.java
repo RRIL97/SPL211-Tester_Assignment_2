@@ -125,15 +125,16 @@ public class Tester {
                 long shieldDeactivationTestValue = (diaryInstance.getR2D2Deactivate() - startingTimeOfTest);
                 System.out.println("\r\n-----------------------------------");
 
-                boolean passedFirstTest = false; //Checking Deactivation Shield Logic
+                boolean passedFirstTest = true; //Checking Deactivation Shield Logic
+                //I have decide to remove this test since CPU switches are funny and they cause unexpected behaviour.
+              
                 boolean passedSecondTest = false; //Checking Num Of Attacks Logic
                 boolean passedThirdTest = true;  //Checking Graceful Termination (Should be at the same mili second~)
 
               //  System.out.println("Your Deactivation Shield Finished Time --> " + shieldDeactivationTestValue + "  Test Value Should Of Been -> " + currentTests[i].getR2D2Sleep());
               //  if (Math.round(shieldDeactivationTestValue / 100) * 100 == (Math.round(currentTests[i].getR2D2Sleep()) / 100) * 100)
               //      passedFirstTest = true;
-              //I have decide to remove this check since CPU switches are funny and they can cause unexpected behaviour.
-                passedFirstTest = true;
+               passedFirstTest = true;
                 if (numOfAttacksInTest.get() == (currentTests[i].getNumberOfAttacks().get()))
                     passedSecondTest = true;
 
@@ -145,7 +146,7 @@ public class Tester {
                 long minTerminate = FindMin(soloTerminate, C3POTerminate, LandoTermiante, R2D2Terminate);
                 System.out.println("Minimum Termination Time --> " + minTerminate);
 
-                //Termination Difference shall not be bigger than 0000000000020L, Otherwise an invalid method of termination is used (Most likely)
+                //Termination Difference shall not be bigger than 0000000000020L, A bigger value means an invalid method of termination was used (Most likely)
                 if (soloTerminate - minTerminate > 0000000000020L || C3POTerminate - minTerminate > 0000000000020L
                         || LandoTermiante - minTerminate > 0000000000020L || R2D2Terminate - minTerminate > 0000000000020L)
                     passedThirdTest = false;
@@ -297,7 +298,7 @@ public class Tester {
                 System.out.println("Failed Round Robin");
             } else
                 System.out.println("Round Robin Test Passed");
-            //Check if Unregister really destroyes the Queue and Removes The Service From The QUEUE
+            //Checks if Unregister really destroyes the Queue and removes the service from the queue
             //It shall also remove the microservice from the eventlist/broadcastlist
             //I only check eventlist, you can also check broadcastList
             messageInstance.unregister(hanSoloObj);
